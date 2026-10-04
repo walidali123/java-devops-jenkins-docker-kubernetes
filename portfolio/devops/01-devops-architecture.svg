@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#2468df"/></marker></defs>
+<rect x="0" y="0" width="1920" height="1080" rx="0" fill="#f7f9fc"/>
+<rect x="70" y="58" width="8" height="102" rx="3" fill="#2468df"/>
+<text x="102" y="75" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="start">DEVOPS PORTFOLIO  /  JAVA MAVEN APPLICATION</text>
+<text x="102" y="126" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="42" font-weight="700" text-anchor="start">Java delivery architecture</text>
+<text x="102" y="175" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="start">Versioned container delivery to a configured Kubernetes target.</text>
+<text x="1818" y="87" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="700" text-anchor="end">01</text>
+<rect x="90" y="205" width="1740" height="48" rx="9" fill="#eaf1ff"/>
+<text x="110" y="236" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">PRIMARY VARIANT  •  java-maven-app-complete-pipeline-ecr-eks  •  EKS provisioning is not included</text>
+<rect x="90" y="984" width="1740" height="2" rx="0" fill="#dbe5ef"/>
+<text x="90" y="1024" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">Repository configuration • Reviewed 04 Oct 2026 • No live deployment verification</text>
+<text x="1830" y="1024" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="end">walidali123 / java-maven-app</text>
+<rect x="90" y="305" width="440" height="200" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="112" y="329" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="132" y="352" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">SOURCE</text>
+<text x="115" y="395" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">GitHub repository</text>
+<text x="115" y="435" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Java / Spring Boot application</text>
+<text x="115" y="467" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Maven project + Jenkinsfile</text>
+<rect x="740" y="305" width="440" height="200" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="762" y="329" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="782" y="352" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">AUTOMATION</text>
+<text x="765" y="395" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Jenkins</text>
+<text x="765" y="435" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Version update + Maven package</text>
+<text x="765" y="467" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Docker build + publish + apply</text>
+<rect x="1390" y="305" width="440" height="200" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="1412" y="329" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="1432" y="352" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">IMAGE REGISTRY</text>
+<text x="1415" y="395" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Amazon ECR</text>
+<text x="1415" y="435" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Version + Jenkins build-number tag</text>
+<text x="1415" y="467" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Registry authentication configured</text>
+<polyline points="530,405 740,405" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="573" y="386" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">job source</text>
+<polyline points="1180,405 1390,405" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1213" y="386" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">publish image</text>
+<rect x="90" y="610" width="440" height="200" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="112" y="634" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="132" y="657" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">VERSION WRITEBACK</text>
+<text x="115" y="700" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">GitLab repository</text>
+<text x="115" y="740" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Commit updated project files</text>
+<text x="115" y="772" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Push to jenkins-jobs branch</text>
+<polyline points="830,505 830,553 310,553 310,610" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="345" y="541" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">commit version update</text>
+<rect x="740" y="580" width="1090" height="340" rx="18" fill="#eef5ff" stroke="#dbe5ef" stroke-width="2"/>
+<text x="768" y="620" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start">KUBERNETES TARGET  •  externally configured cluster</text>
+<rect x="765" y="670" width="430" height="205" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="787" y="694" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="807" y="717" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">INTERNAL TRAFFIC</text>
+<text x="790" y="760" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Service · port 80</text>
+<text x="790" y="800" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Selector matches application labels</text>
+<text x="790" y="832" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Forwards to container port 8080</text>
+<rect x="1375" y="670" width="430" height="205" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="1397" y="694" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="1417" y="717" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">APPLICATION</text>
+<text x="1400" y="760" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Deployment · 1 replica</text>
+<text x="1400" y="800" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Java 8 runtime + packaged JAR</text>
+<text x="1400" y="832" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">imagePullSecrets reference</text>
+<polyline points="1195,765 1375,765" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1250" y="746" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">HTTP</text>
+<polyline points="1610,505 1610,670" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="1630" y="567" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">image pull</text>
+<polyline points="970,505 970,580" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="991" y="552" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">kubectl apply</text>
+<text x="90" y="910" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">No public ingress, reverse proxy, database, or TLS is configured in this variant.</text>
+</svg>

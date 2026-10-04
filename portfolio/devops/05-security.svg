@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#2468df"/></marker></defs>
+<rect x="0" y="0" width="1920" height="1080" rx="0" fill="#f7f9fc"/>
+<rect x="70" y="58" width="8" height="102" rx="3" fill="#2468df"/>
+<text x="102" y="75" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="start">DEVOPS PORTFOLIO  /  JAVA MAVEN APPLICATION</text>
+<text x="102" y="126" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="42" font-weight="700" text-anchor="start">Credential &amp; access configuration</text>
+<text x="102" y="175" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="start">Repository-supported controls, shown with their operational limits.</text>
+<text x="1818" y="87" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="700" text-anchor="end">05</text>
+<rect x="90" y="205" width="1740" height="48" rx="9" fill="#eaf1ff"/>
+<text x="110" y="236" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">CONFIGURATION REVIEW  •  Credential bindings and firewall rules exist  •  No claim of a hardened production system</text>
+<rect x="90" y="984" width="1740" height="2" rx="0" fill="#dbe5ef"/>
+<text x="90" y="1024" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">Repository configuration • Reviewed 04 Oct 2026 • No live deployment verification</text>
+<text x="1830" y="1024" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="end">walidali123 / java-maven-app</text>
+<rect x="90" y="305" width="550" height="245" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="112" y="329" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="132" y="352" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">ECR / KUBERNETES VARIANT</text>
+<text x="115" y="395" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Jenkins credential bindings</text>
+<text x="115" y="435" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Registry, AWS, and Git credentials</text>
+<text x="115" y="467" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Referenced by credential IDs</text>
+<text x="115" y="499" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Registry login uses password-stdin</text>
+<rect x="685" y="305" width="550" height="245" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="707" y="329" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="727" y="352" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">ECR / KUBERNETES VARIANT</text>
+<text x="710" y="395" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Private-image pull reference</text>
+<text x="710" y="435" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Deployment names an imagePullSecret</text>
+<text x="710" y="467" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">The Secret object is not in this repo</text>
+<text x="710" y="499" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Cluster access is an external prerequisite</text>
+<rect x="1280" y="305" width="550" height="245" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="1302" y="329" width="5" height="31" rx="2" fill="#087f82"/>
+<text x="1322" y="352" fill="#087f82" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">TERRAFORM / EC2 VARIANT</text>
+<text x="1305" y="395" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Security-group rules</text>
+<text x="1305" y="435" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">SSH allowed from configured CIDRs</text>
+<text x="1305" y="467" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Application TCP 8080 open publicly</text>
+<text x="1305" y="499" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Outbound traffic allowed</text>
+<rect x="90" y="610" width="840" height="155" rx="12" fill="#eef3f8"/>
+<text x="112" y="644" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start">Security boundaries to keep visible</text>
+<text x="112" y="675" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">Kubernetes Service defaults to internal ClusterIP access.</text>
+<text x="112" y="705" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">No TLS / HTTPS, Ingress, RBAC, or securityContext defined.</text>
+<text x="112" y="735" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">No secret values or network addresses appear in these assets.</text>
+<rect x="990" y="610" width="840" height="155" rx="12" fill="#eef3f8"/>
+<text x="1012" y="644" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start">Limitations of the checked-in deployment examples</text>
+<text x="1012" y="675" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">SSH commands disable host-key verification.</text>
+<text x="1012" y="705" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">Compose includes a literal database password; value omitted.</text>
+<text x="1012" y="735" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">Git credentials are interpolated into a remote URL.</text>
+<text x="90" y="891" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" text-anchor="start">Credential references show intended integration; secret provisioning and safe runtime handling need validation.</text>
+<text x="90" y="944" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">Evidence: Jenkinsfile · kubernetes/deployment.yaml · main.tf · docker-compose.yaml · server-cmds.sh</text>
+</svg>

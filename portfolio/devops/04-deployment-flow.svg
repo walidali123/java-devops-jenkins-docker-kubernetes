@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#2468df"/></marker></defs>
+<rect x="0" y="0" width="1920" height="1080" rx="0" fill="#f7f9fc"/>
+<rect x="70" y="58" width="8" height="102" rx="3" fill="#2468df"/>
+<text x="102" y="75" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="start">DEVOPS PORTFOLIO  /  JAVA MAVEN APPLICATION</text>
+<text x="102" y="126" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="42" font-weight="700" text-anchor="start">How a release is configured to move</text>
+<text x="102" y="175" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="start">A tagged artifact links the build to the Kubernetes deployment manifest.</text>
+<text x="1818" y="87" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="700" text-anchor="end">04</text>
+<rect x="90" y="205" width="1740" height="48" rx="9" fill="#eaf1ff"/>
+<text x="110" y="236" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">PRIMARY VARIANT  •  Release flow begins when the Jenkins job runs  •  Push-trigger wiring is not checked in</text>
+<rect x="90" y="984" width="1740" height="2" rx="0" fill="#dbe5ef"/>
+<text x="90" y="1024" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">Repository configuration • Reviewed 04 Oct 2026 • No live deployment verification</text>
+<text x="1830" y="1024" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="end">walidali123 / java-maven-app</text>
+<rect x="90" y="315" width="500" height="215" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="112" y="339" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="132" y="362" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">01  INPUT</text>
+<text x="115" y="405" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Jenkins job starts</text>
+<text x="115" y="445" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Source checked out by job configuration</text>
+<text x="115" y="477" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Pipeline reads the Maven project</text>
+<rect x="710" y="315" width="500" height="215" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="732" y="339" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="752" y="362" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">02  ARTIFACT</text>
+<text x="735" y="405" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Build versioned image</text>
+<text x="735" y="445" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Update project version + package JAR</text>
+<text x="735" y="477" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Docker tag includes Jenkins build number</text>
+<rect x="1330" y="315" width="500" height="215" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="1352" y="339" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="1372" y="362" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">03  DELIVERY</text>
+<text x="1355" y="405" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Publish to Amazon ECR</text>
+<text x="1355" y="445" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Registry login uses Jenkins credentials</text>
+<text x="1355" y="477" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">docker push publishes the tagged image</text>
+<polyline points="590,425 710,425" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1210,425 1330,425" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1330" y="650" width="500" height="225" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="1352" y="674" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="1372" y="697" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">04  CONFIGURATION</text>
+<text x="1355" y="740" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Render and apply</text>
+<text x="1355" y="780" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">envsubst inserts application and image</text>
+<text x="1355" y="812" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">kubectl applies Deployment + Service</text>
+<rect x="710" y="650" width="500" height="225" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="732" y="674" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="752" y="697" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">05  TARGET STATE</text>
+<text x="735" y="740" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Kubernetes desired state</text>
+<text x="735" y="780" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Deployment references the new image</text>
+<text x="735" y="812" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Service routes to application port 8080</text>
+<rect x="90" y="650" width="500" height="225" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="112" y="674" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="132" y="697" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">06  SOURCE RECORD</text>
+<text x="115" y="740" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Write version back</text>
+<text x="115" y="780" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Git commit after apply commands</text>
+<text x="115" y="812" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Push goes to a GitLab branch</text>
+<polyline points="1580,530 1580,650" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1330,762 1210,762" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="710,762 590,762" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="90" y="944" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">The pipeline does not wait for rollout completion or execute a post-deployment health check.</text>
+</svg>

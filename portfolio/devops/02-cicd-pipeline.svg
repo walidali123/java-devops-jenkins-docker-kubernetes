@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#2468df"/></marker></defs>
+<rect x="0" y="0" width="1920" height="1080" rx="0" fill="#f7f9fc"/>
+<rect x="70" y="58" width="8" height="102" rx="3" fill="#2468df"/>
+<text x="102" y="75" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="start">DEVOPS PORTFOLIO  /  JAVA MAVEN APPLICATION</text>
+<text x="102" y="126" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="42" font-weight="700" text-anchor="start">Jenkins CI/CD pipeline</text>
+<text x="102" y="175" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="start">Five configured stages, with tests included in Maven packaging.</text>
+<text x="1818" y="87" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="32" font-weight="700" text-anchor="end">02</text>
+<rect x="90" y="205" width="1740" height="48" rx="9" fill="#eaf1ff"/>
+<text x="110" y="236" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">PRIMARY VARIANT  •  Jenkinsfile stages  •  Pipeline execution evidence was not supplied</text>
+<rect x="90" y="984" width="1740" height="2" rx="0" fill="#dbe5ef"/>
+<text x="90" y="1024" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="start">Repository configuration • Reviewed 04 Oct 2026 • No live deployment verification</text>
+<text x="1830" y="1024" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="end">walidali123 / java-maven-app</text>
+<rect x="90" y="315" width="560" height="225" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="112" y="339" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="132" y="362" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">01  VERSION</text>
+<text x="115" y="405" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Increment version</text>
+<text x="115" y="445" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Maven version-update command</text>
+<text x="115" y="477" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Tag = version + build number</text>
+<rect x="680" y="315" width="560" height="225" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="702" y="339" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="722" y="362" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">02  BUILD</text>
+<text x="705" y="405" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Package application</text>
+<text x="705" y="445" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">mvn clean package</text>
+<text x="705" y="477" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">JUnit test in Maven lifecycle</text>
+<rect x="1270" y="315" width="560" height="225" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="1292" y="339" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="1312" y="362" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">03  CONTAINER</text>
+<text x="1295" y="405" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Build &amp; publish</text>
+<text x="1295" y="445" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Docker build from packaged JAR</text>
+<text x="1295" y="477" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Push tagged image to Amazon ECR</text>
+<rect x="1270" y="650" width="560" height="225" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="1292" y="674" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="1312" y="697" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">04  DEPLOY</text>
+<text x="1295" y="740" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Apply manifests</text>
+<text x="1295" y="780" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">envsubst resolves image variables</text>
+<text x="1295" y="812" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">kubectl apply: Deployment + Service</text>
+<rect x="680" y="650" width="560" height="225" rx="18" fill="#ffffff" stroke="#dbe5ef" stroke-width="2"/>
+<rect x="702" y="674" width="5" height="31" rx="2" fill="#2468df"/>
+<text x="722" y="697" fill="#2468df" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start">05  WRITEBACK</text>
+<text x="705" y="740" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="29" font-weight="700" text-anchor="start">Commit version update</text>
+<text x="705" y="780" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Commit updated files in Git</text>
+<text x="705" y="812" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="start">Push to GitLab jenkins-jobs</text>
+<polyline points="650,427 680,427" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1240,427 1270,427" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1550,540 1550,650" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<polyline points="1270,762 1240,762" fill="none" stroke="#2468df" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="90" y="650" width="560" height="155" rx="12" fill="#eef3f8"/>
+<text x="112" y="684" fill="#142a43" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" text-anchor="start">What this configuration establishes</text>
+<text x="112" y="715" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">Build, publication, and apply commands</text>
+<text x="112" y="745" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">No standalone test stage or rollout check</text>
+<text x="112" y="775" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">Webhook setup is external to this repo</text>
+<text x="90" y="946" fill="#536579" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start">Evidence: Jenkinsfile · pom.xml · Dockerfile · src/test/java/AppTest.java</text>
+</svg>
