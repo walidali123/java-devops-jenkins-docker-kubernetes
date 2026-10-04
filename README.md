@@ -1,94 +1,124 @@
-# DevOps Deployment & Infrastructure
+# Java DevOps Portfolio
+
+### Jenkins CI/CD · Docker · Amazon ECR · Kubernetes
+
+A DevOps case study showing how a Java application is packaged, published as a versioned container image, and configured for deployment to Kubernetes. Separate branches explore Terraform infrastructure and Docker Compose deployment on Amazon EC2.
+
+**Focus:** build automation, container delivery, deployment configuration, and infrastructure as code.
+
+[Architecture](#architecture) · [CI/CD](#cicd) · [Infrastructure](#infrastructure) · [Deployment](#deployment-flow) · [Security](#security) · [Evidence](portfolio/devops/EVIDENCE.md)
 
 ## Overview
 
-This case study documents the build and deployment configuration of [java-maven-app](https://github.com/walidali123/java-maven-app), reviewed across all seven remote branch tips on 4 October 2026. The primary example is `java-maven-app-complete-pipeline-ecr-eks`: a Jenkins pipeline combining Maven packaging, Docker image publication to Amazon ECR, and Kubernetes manifest application.
+The primary implementation is on the [`java-maven-app-complete-pipeline-ecr-eks`](https://github.com/walidali123/java-devops-jenkins-docker-kubernetes/tree/java-maven-app-complete-pipeline-ecr-eks) branch. Its Jenkinsfile defines five stages: version update, Maven packaging, Docker image publication, Kubernetes manifest application, and Git version writeback.
 
-The application is a small Java/Spring Boot web application. This portfolio focuses on its DevOps configuration and does not claim application authorship. Diagrams represent checked-in commands and intended runtime relationships; they are not screenshots or proof of a live production deployment.
+The application is a small Java/Spring Boot web application used as the deployment workload. This portfolio documents the DevOps configuration. Diagrams describe checked-in commands and intended relationships; a successful live production deployment was not verified.
 
-The repository also contains separate EC2, Terraform, Docker Compose, shared-library, and Ansible experiments. They are not merged into a fictional single architecture. See [EVIDENCE.md](EVIDENCE.md) for the complete branch audit, source links, prerequisites, and limitations; see [UPWORK.md](UPWORK.md) for portfolio copy.
+| Area | Repository-supported work |
+|---|---|
+| Build automation | Maven packaging with a basic JUnit test |
+| Container delivery | Java Dockerfile, version/build-number tags, Amazon ECR publication |
+| Kubernetes | Parameterized Deployment and internal Service manifests |
+| Infrastructure as code | Separate Terraform definitions for AWS networking and EC2 |
+| Server deployment | Separate SSH/SCP and Docker Compose configuration |
 
 ## Architecture
 
-![Java delivery architecture](01-devops-architecture.png)
+![Java delivery architecture](portfolio/devops/01-devops-architecture.png)
 
-The primary pipeline packages the Java application, builds its container image, authenticates to Amazon ECR, publishes a versioned tag, substitutes image/application values into Kubernetes templates, and applies those templates. The cluster pulls the referenced image using a named image-pull Secret supplied outside this repository.
+Jenkins packages the application, builds and publishes its image to Amazon ECR, and applies Kubernetes templates with resolved application and image values. The Deployment defines one replica; an internal Service forwards port 80 to container port 8080.
 
-The manifest defines one application replica and a Service on port 80 targeting container port 8080. No Service type is specified, so the definition is for an internal ClusterIP Service. No public ingress, load balancer, proxy, or HTTPS route is configured. The branch name mentions EKS, but neither EKS provisioning nor cluster identity is established by the checked-in files; this case study therefore describes a Kubernetes target rather than a verified EKS environment.
-
-After the apply commands, the pipeline commits project changes and pushes to a GitLab `jenkins-jobs` branch. The GitHub repository supplied for review and the GitLab writeback destination are different source-control endpoints.
+The registry, cluster access, and referenced image-pull Secret must be supplied externally. The branch name mentions EKS, but the repository does not establish cluster identity or provision an EKS cluster. No public ingress or HTTPS endpoint is configured in this variant.
 
 ## CI/CD
 
-![Jenkins pipeline](02-cicd-pipeline.png)
+![Jenkins CI/CD pipeline](portfolio/devops/02-cicd-pipeline.png)
 
-The primary Jenkinsfile contains five stages:
+| Stage | Configured action |
+|---|---|
+| 1. Increment version | Update the Maven version and derive an image tag using the Jenkins build number |
+| 2. Build application | Run `mvn clean package`; a basic JUnit test is included in the Maven lifecycle |
+| 3. Build and publish image | Build the Docker image, authenticate, and push its tag to Amazon ECR |
+| 4. Apply deployment | Resolve manifest variables with `envsubst` and submit resources using `kubectl apply` |
+| 5. Record version update | Commit project changes and push to the configured GitLab branch |
 
-1. **Increment version:** invokes Maven version-update commands, reads the project version, and derives a Docker image tag from that version plus the Jenkins build number.
-2. **Build app:** executes `mvn clean package`. The source includes one basic JUnit test of `Application.getStatus()`; testing is part of packaging, not a separate pipeline stage.
-3. **Build image:** builds the Docker image, uses Jenkins-bound registry credentials for `docker login --password-stdin`, and pushes the tag to ECR.
-4. **Deploy:** uses `envsubst` and `kubectl apply` for the Deployment and Service.
-5. **Commit version update:** commits project files and pushes to the configured GitLab branch.
-
-Jenkins setup, checkout/job configuration, webhook wiring, tool installation, registry provisioning, valid credentials, and cluster access are external prerequisites. The source commands are present; their successful execution was not verified during this audit. There is no rollout wait, post-deployment HTTP check, rollback procedure, or Jenkins test-report publication step.
+Jenkins job setup, credentials, tools, checkout configuration, and any webhook are external prerequisites. The test checks a Java method; it is not an HTTP health check. Git writeback targets GitLab, while the portfolio and reviewed source are hosted on GitHub.
 
 ## Infrastructure
 
-![Infrastructure variants](03-infrastructure.png)
+![Kubernetes and EC2 infrastructure variants](portfolio/devops/03-infrastructure.png)
 
-**Kubernetes variant:** the Deployment specifies one container using an ECR image, a named image-pull Secret, `imagePullPolicy: Always`, and container port 8080. Its Service selects the application's labels. The manifests include no probes, persistent volumes, resource requests/limits, Ingress, or cluster-provisioning resources.
+### Kubernetes variant
 
-**Independent EC2/Compose variant:** `feature-sshagent-terraform-jenkins-integeration` contains Terraform definitions for a VPC, subnet, internet gateway, default route table, default security group, and Amazon Linux EC2 instance. User data installs Docker and Docker Compose. A Compose file defines the Java container and a PostgreSQL container, publishing ports 8080 and 5432. No explicit Compose networks or volumes are declared; no application datasource connection to PostgreSQL is configured. The database is therefore shown as a separate service, without an invented application-to-database data-flow arrow.
+The primary branch contains a single-replica Deployment with a Java container, an ECR image reference, and an image-pull Secret reference. Its Service uses matching application labels and provides internal routing. No database container, persistent volume, Ingress, or cluster provisioning is defined in this variant.
 
-The EC2 pipeline calls external shared-library functions and expects Terraform files under `terraform/`, while those files are stored at the branch root. It also reads Terraform output without `-raw`. Those integration details need validation before this branch can support an end-to-end execution claim. The commented S3 backend is not presented as active remote-state storage.
+### Terraform / EC2 variant
 
-**Supplemental examples:** `master` includes an Ansible playbook for downloading Nexus, creating its runtime user, assigning ownership, starting it, and inspecting process/network output. It is not integrated into the primary pipeline, and no inventory is supplied. Shared-library branches reference external build/publish helpers; their implementations are outside the reviewed repository.
+The separate [`feature-sshagent-terraform-jenkins-integeration`](https://github.com/walidali123/java-devops-jenkins-docker-kubernetes/tree/feature-sshagent-terraform-jenkins-integeration) branch contains:
+
+- Terraform definitions for a VPC, subnet, internet gateway, route table, security group, and EC2 instance.
+- Amazon Linux startup commands to install Docker and Docker Compose.
+- SSH/SCP deployment commands and a Compose stack containing the Java application and PostgreSQL.
+
+The Compose file publishes application and database ports but defines no named volumes or application datasource connection. This branch is an independent deployment example. Its Jenkinsfile expects a `terraform/` directory while the Terraform files are at the branch root; it also depends on an external shared library. These integration details require validation before an end-to-end execution claim.
 
 ## Deployment Flow
 
-![Deployment flow](04-deployment-flow.png)
+![Versioned application deployment flow](portfolio/devops/04-deployment-flow.png)
 
-A Jenkins job run begins the configured flow. Version update and Maven packaging precede Docker build/publication. The Deployment template references the resulting image tag, while the Service template defines internal routing. `kubectl apply` submits those resources to an externally configured cluster; Kubernetes is expected to reconcile the desired state.
+When the configured Jenkins job runs, it updates the project version, packages the application, and publishes a tagged image. The pipeline inserts that image reference into the Kubernetes Deployment template and applies the Deployment and Service. Git writeback follows the apply commands.
 
-The pipeline then performs Git writeback without waiting for rollout completion. This establishes a configured release sequence, not evidence that a container became healthy or that a public production application was available. There is no checked-in push trigger, so the diagrams do not claim that every GitHub push automatically initiates this flow.
+The pipeline does not wait for a completed rollout or run a post-deployment health check. The flow therefore demonstrates configured delivery steps, rather than verified application availability.
 
 ## Security
 
-![Credential and access configuration](05-security.png)
+![Credential and access configuration](portfolio/devops/05-security.png)
 
-The primary Jenkinsfile references credentials for ECR authentication, AWS environment bindings, and Git authentication. Its Docker login uses `--password-stdin`. The Kubernetes Deployment references an image-pull Secret but does not define or create that Secret. The EC2 Terraform security group restricts SSH to configured CIDR inputs, allows public application access on TCP 8080, and allows outbound traffic.
+The checked-in examples include Jenkins credential bindings, registry login with `--password-stdin`, a Kubernetes image-pull Secret reference, and Terraform SSH access rules using configured CIDRs.
 
-These are configuration elements, not proof of a hardened production environment. The branch examples disable SSH host-key verification, interpolate credentials into shell commands/Git URLs, and include a literal database password in Compose. Values, account identifiers, hosts, IP addresses, credential IDs, and personal filesystem details are omitted from portfolio diagrams and text. No TLS, RBAC policy, NetworkPolicy, container security context, secrets rotation, or vulnerability-scanning workflow is implemented in the reviewed files.
+The security visual also records their limits: no TLS setup, SSH commands that disable host-key verification, credential interpolation, and a literal database password in the Compose example. Secret values and network addresses are omitted from this portfolio. These controls are presented as configuration evidence, rather than a production-hardening claim.
 
 ## Technologies
 
-**Primary case study:** Jenkins, Groovy, Apache Maven, Docker, Amazon ECR, Kubernetes, Git, Bash/shell, `envsubst`, Java 8, Spring Boot, and JUnit.
+| Scope | Technologies |
+|---|---|
+| Primary delivery pipeline | Jenkins, Groovy, Maven, Docker, Amazon ECR, Kubernetes, Git, shell, `envsubst` |
+| Application / test context | Java 8, Spring Boot, JUnit |
+| Separate EC2 deployment example | Terraform, AWS VPC/network resources, Amazon EC2, Amazon Linux, Docker Compose, Docker Hub, PostgreSQL, SSH/SCP |
+| Supplemental branch examples | Jenkins Shared Library integration, Ansible, Sonatype Nexus |
 
-**Separate branch examples:** Terraform, AWS VPC/network resources, Amazon EC2, Amazon Linux, Docker Compose, Docker Hub, PostgreSQL, SSH/SCP, Ansible, Sonatype Nexus, and external Jenkins Shared Library integration.
-
-Application startup logging uses SLF4J. A Logstash Logback encoder dependency exists, but no configured log-shipping destination, centralized logging stack, monitoring system, or dashboard is supplied. Nginx occurs only as the image in a separate Kubernetes deployment demo; it is not a configured reverse proxy for this application.
+Startup logging is present in the application. No centralized logging or monitoring stack is configured. The separate nginx deployment demo is not an application reverse-proxy configuration.
 
 ## DevOps Responsibilities
 
-The repository demonstrates configuration work in these areas:
+The repository provides evidence of configuration in these areas:
 
-- Jenkins stages for packaging, container publication, deployment commands, and version writeback.
-- Java JAR containerization and version-based Docker image tags.
-- Kubernetes Deployment and internal Service templates with environment substitution.
-- Credential bindings and a private-image pull Secret reference.
-- Terraform network/EC2 definitions and startup automation in a separate branch.
-- SSH/Compose deployment commands and supplemental Ansible Nexus setup.
+- Maven packaging and container image publication in Jenkins.
+- Version-based image naming and Git version writeback.
+- Java application containerization.
+- Parameterized Kubernetes Deployment and Service definitions.
+- Credential bindings and private-image pull integration references.
+- Terraform network/EC2 definitions and SSH/Compose deployment commands in a separate branch.
 
-This review does not establish who authored each part. Publish personal responsibility claims only for work actually performed by the portfolio owner; no application-development claim is included.
+These are repository-supported capabilities; individual authorship is not established by this review. Application-development credit is outside the scope of this case study.
 
 ## Project Results
 
-- A five-stage Jenkins configuration defines the primary build-to-deployment sequence.
-- Container packaging and Kubernetes templates connect the application artifact to a declared runtime image and internal service route.
-- Separate infrastructure definitions document an EC2/Compose alternative, with its integration limitations recorded.
-- A committed Surefire report in the Terraform branch records one test with zero failures/errors. It is historical build output, not a fresh test result or deployment-health validation, and is not evidence for the ECR branch run.
-- No live deployment, cloud-resource existence, public availability, production security, or performance metric was verified. Maven, Jenkins, Docker, Terraform, and cloud deployment were not executed in this review.
+- A checked-in five-stage pipeline defines the primary release sequence.
+- A Dockerfile and Kubernetes templates connect the packaged application to its runtime image and service route.
+- A separate branch documents an EC2/Compose approach with Terraform infrastructure definitions.
+- A committed test report in the Terraform branch records one test with no failures or errors. It is historical output, not a fresh test result or proof of the primary pipeline run.
 
-## Assets
+No live cloud deployment, production uptime, performance improvements, or zero-downtime results are claimed. The [evidence audit](portfolio/devops/EVIDENCE.md) records the exact reviewed commits, source references, external prerequisites, and configuration gaps.
 
-All five visuals are available as 1920 × 1080 PNGs and editable SVGs. [UPWORK.md](UPWORK.md) contains the title, overview, responsibilities, features, results, and suggested skills. [EVIDENCE.md](EVIDENCE.md) contains the audit. [source/generate_visuals.py](source/generate_visuals.py) reproduces the diagrams using Python and Inkscape.
+## Portfolio Files
+
+| File | Purpose |
+|---|---|
+| [Case-study README](portfolio/devops/README.md) | Self-contained documentation beside the portfolio assets |
+| [Upwork portfolio copy](portfolio/devops/UPWORK.md) | Project title, overview, responsibilities, features, and suggested skills |
+| [Branch audit and evidence](portfolio/devops/EVIDENCE.md) | Seven-branch inventory and immutable source references |
+| [PNG and SVG visuals](portfolio/devops/) | Five 1920 × 1080 images and editable SVG counterparts |
+| [Diagram generator](portfolio/devops/source/generate_visuals.py) | Reproducible diagrams built with Python and Inkscape |
+
+Reviewed across seven branch tips on **4 October 2026**. Presentation changes do not modify the application or deployment implementation.
